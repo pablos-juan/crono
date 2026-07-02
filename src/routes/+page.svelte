@@ -2,6 +2,6 @@
   import Hero from "$lib/components/Hero.svelte";
 </script>
 
-<main class="min-h-dvh w-screen">
+<main class="h-dvh w-screen">
   <Hero />
 </main>
