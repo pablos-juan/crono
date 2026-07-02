@@ -1,0 +1,84 @@
+{
+  "title": "6 de junio - 12 de julio",
+  "services": [
+    {
+      "day": "MARTES",
+      "name": "DAMAS DORCAS",
+      "date": "7",
+      "team": {
+        "PIANO": "Daniel Martínez",
+        "GUITARRA": "Samuel Rojas",
+        "BAJO": "Miguel Torres",
+        "BATERIA": "Andrés Gómez",
+        "LIDER": "Valeria Castro",
+        "APOYO": [
+          "Laura Sánchez",
+          "Juan Pérez"
+        ]
+      }
+    },
+    {
+      "day": "JUEVES",
+      "name": "ORACIÓN Y DOCTRINA",
+      "date": "9",
+      "team": {
+        "PIANO": "Camila Herrera",
+        "GUITARRA": "David Morales",
+        "BATERIA": "Felipe Torres",
+        "LIDER": "Natalia Ruiz",
+        "APOYO": [
+          "Mariana Díaz",
+          "Sebastián López"
+        ]
+      }
+    },
+    {
+      "day": "SÁBADO",
+      "name": "JÓVENES",
+      "date": "11",
+      "team": {
+        "PIANO": "Daniel Martínez",
+        "GUITARRA": "Samuel Rojas",
+        "BAJO": "Miguel Torres",
+        "BATERIA": "Andrés Gómez",
+        "LIDER": "Valeria Castro",
+        "APOYO": [
+          "Carlos Ramírez",
+          "Laura Sánchez",
+          "Juan Pérez"
+        ]
+      }
+    },
+    {
+      "day": "DOMINGO",
+      "name": "ESCUELA DOMINICAL",
+      "date": "12",
+      "team": {
+        "PIANO": "Camila Herrera",
+        "GUITARRA": "David Morales",
+        "BAJO": "Miguel Torres",
+        "BATERIA": "Felipe Torres",
+        "LIDER": "Natalia Ruiz",
+        "APOYO": [
+          "Mariana Díaz",
+          "Sebastián López"
+        ]
+      }
+    },
+    {
+      "day": "DOMINGO",
+      "name": "CULTO EVANGELÍSTICO",
+      "date": "12",
+      "team": {
+        "PIANO": "Daniel Martínez",
+        "GUITARRA": "Samuel Rojas",
+        "BATERIA": "Andrés Gómez",
+        "LIDER": "Valeria Castro",
+        "APOYO": [
+          "Laura Sánchez",
+          "Carlos Ramírez"
+        ]
+      }
+    }
+  ]
+}
