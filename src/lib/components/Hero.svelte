@@ -2,7 +2,6 @@
   import '../../app.css'
   import DayCard from './DayCard.svelte';
   import MainCard from './MainCard.svelte';
-  import Hero from './MainCard.svelte';
   import data from '$lib/mock/data.json'
 
   const { title, services } = data
@@ -38,7 +37,7 @@
   }
 </script>
 
-<section class="flex flex-col justify-between h-dvh bg-neutral-950 text-white p-10 py-18">
+<section class="flex flex-col justify-between h-dvh bg-neutral-950 text-white p-10">
   <div class="flex flex-col items-center gap-1.5">
     <span
       class="bg-neutral-400 text-neutral-800/90 px-2.5 rounded-md text-lg font-sans font-bold tracking-tight"
