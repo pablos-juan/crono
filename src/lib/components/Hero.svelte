@@ -65,13 +65,13 @@
       </div>
   
       <div class="flex gap-2">
-        <span class="flex p-1.5 bg-neutral-800 rounded-lg">
+        <button class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
           <img src="/left.svg" alt="arrow left">
-        </span>
+        </button>
   
-        <span class="flex p-1.5 bg-neutral-800 rounded-lg">
+        <button class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
           <img src="/right.svg" alt="arrow left">
-        </span>
+        </button>
       </div>
     </aside>
   </div>
