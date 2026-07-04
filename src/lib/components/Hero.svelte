@@ -37,7 +37,7 @@
   }
 </script>
 
-<section class="flex flex-col justify-between h-dvh bg-neutral-950 text-white p-10">
+<section class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5 py-10">
   <div class="flex flex-col items-center gap-1.5">
     <span
       class="bg-neutral-400 text-neutral-800/90 px-2.5 rounded-md text-lg font-sans font-bold tracking-tight"
@@ -49,20 +49,31 @@
     </a>
   </div>
 
-  <div role="none" ontouchstart={onTouchStart} ontouchend={onTouchEnd} class="flex flex-col gap-5">
-    <div class="transition-opacity duration-500 ease-in-out {onTransition ? 'opacity-0' : 'opacity-100'} items-end">
-      {#if current === -1}
-        <MainCard />
-      {:else}
-        <DayCard service={services[current]} />
-      {/if}
+  
+  <div class="flex flex-col gap-5">
+    <div>
+      <DayCard service={services[0]} />
     </div>
-
-    <aside class="w-full flex gap-2">
-      <div class="flex-1 h-1 rounded transition-colors duration-450 {current === -1 ? 'bg-white/80' : 'bg-white/30'}"></div>
-      {#each services as _, i}
-        <div class="flex-1 h-1 rounded transition-colors duration-500 {current === i ? 'bg-white/80' : 'bg-white/30'}"></div>
-      {/each}
-  </aside>
+    
+    <aside class="w-full gap-2 px-5 flex justify-between">
+      <div class="bg-neutral-800 flex rounded-lg gap-1.5 justify-center items-center p-2 px-3">
+        <div class="bg-neutral-400 h-3.5 w-6 rounded-full"></div>
+        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
+        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
+        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
+        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
+      </div>
+  
+      <div class="flex gap-2">
+        <span class="flex p-1.5 bg-neutral-800 rounded-lg">
+          <img src="/left.svg" alt="arrow left">
+        </span>
+  
+        <span class="flex p-1.5 bg-neutral-800 rounded-lg">
+          <img src="/right.svg" alt="arrow left">
+        </span>
+      </div>
+    </aside>
   </div>
+
 </section>
