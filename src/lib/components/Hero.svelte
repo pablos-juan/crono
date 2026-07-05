@@ -43,11 +43,11 @@
       </div>
   
       <div class="flex gap-2">
-        <button onclick={prev} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
+        <button onclick={prev} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg active:bg-neutral-400 active:scale-95 transition">
           <img src="/left.svg" alt="arrow left">
         </button>
   
-        <button onclick={next} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
+        <button onclick={next} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg active:bg-neutral-400 active:scale-95 transition">
           <img src="/right.svg" alt="arrow rigth">
         </button>
       </div>
