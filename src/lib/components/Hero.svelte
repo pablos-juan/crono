@@ -6,34 +6,14 @@
 
   const { title, services } = data
 
-  let current = $state(-1)
-  let touchStartX = 0
-  let onTransition = $state(false)
+  let current = $state(0)
 
-  function onTouchStart (event) {
-    touchStartX = event.touches[0].clientX
+  function prev () {
+    if (current > 0) current -= 1
   }
 
-  function onTouchEnd (event) {
-    if (onTransition) return
-
-    const diff = touchStartX - event.changedTouches[0].clientX
-
-    if (Math.abs(diff) < 50) return
-
-    if (diff > 0 && current < services.length - 1) {
-      changeTo(current + 1)
-    } else if (diff < 0 && current >= 0) {
-      changeTo(current - 1)
-    }
-  }
-
-  function changeTo (index) {
-    onTransition = true
-    setTimeout(() => {
-      current = index
-      onTransition = false
-    }, 500)
+  function next () {
+    if (current < services.length - 1) current += 1
   }
 </script>
 
@@ -52,25 +32,23 @@
   
   <div class="flex flex-col gap-5">
     <div>
-      <DayCard service={services[0]} />
+      <DayCard service={services[current]} />
     </div>
     
     <aside class="w-full gap-2 px-5 flex justify-between">
       <div class="bg-neutral-800 flex rounded-lg gap-1.5 justify-center items-center p-2 px-3">
-        <div class="bg-neutral-400 h-3.5 w-6 rounded-full"></div>
-        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
-        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
-        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
-        <div class="bg-neutral-600 h-3.5 w-3.5 rounded-full"></div>
+        {#each services as _, i }
+          <div class="h-3.5 w-3.5 rounded-full transition-all duration-200 {current === i ? 'bg-neutral-400 w-6' : 'bg-neutral-600'}"></div>
+        {/each}
       </div>
   
       <div class="flex gap-2">
-        <button class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
+        <button onclick={prev} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
           <img src="/left.svg" alt="arrow left">
         </button>
   
-        <button class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
-          <img src="/right.svg" alt="arrow left">
+        <button onclick={next} class="flex p-1.5 w-10 justify-center bg-neutral-800 rounded-lg">
+          <img src="/right.svg" alt="arrow rigth">
         </button>
       </div>
     </aside>
