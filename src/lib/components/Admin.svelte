@@ -1,4 +1,5 @@
 <script>
+  import { goto } from "$app/navigation";
   import AdminCard from "./AdminCard.svelte";
 
 </script>
@@ -21,4 +22,8 @@
     
     <AdminCard title={['NUEVA', 'SEMANA']} content='Genera el cronograma para la próxima semana y publícalo para todos.' />
   </div>
+
+  <button onclick={() => goto('/')} class="bg-neutral-300 p-2 rounded-xl text-lg font-semibold text-neutral-900 border-2 border-neutral-50 active:border-neutral-500 active:scale-95 transition">
+    Inicio
+  </button>
 </section>
