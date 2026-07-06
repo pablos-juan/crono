@@ -42,10 +42,10 @@
   {#if showInfo}
     <article out:fade={{ duration: 200 }} class="flex gap-4 bg-neutral-800 rounded-xl p-4 items-start">
     <p class="leading-5.5 font-serif text-xl text-white/80">
-      Revisa la programación de la próxima semana antes de su publicación automática. Haz click e ingresa.
+      Revisa la programación de la próxima semana antes de su publicación automática.
     </p>
-    <button onclick={() => showInfo = false} class="h-6 w-11">
-      <img class="h-full w-full" src="/x.svg" alt="X button icon">
+    <button onclick={() => showInfo = false} class="w-18">
+      <img class="h-full w-full" src="/link_arrow.svg" alt="Arrow link button">
     </button>
   </article>
   {/if}
