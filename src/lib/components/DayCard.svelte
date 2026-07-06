@@ -1,12 +1,12 @@
 <script>
-  let { service } = $props()
+  let { service, animation } = $props()
   const { day, name, date, team } = $derived(service)
   const { LIDER, APOYO } = $derived(team)
 
   const INSTRUMENTS = ['PIANO', 'BATERIA', 'GUITARRA', 'BAJO']
 </script>
 
-<article class="bg-neutral-900 flex flex-col text-white h-auto gap-5 p-5 rounded-2xl shrink-0 w-full snap-center">
+<article class:bg-neutral-900={animation} class=" transition-all duration-500 flex flex-col text-white h-auto gap-5 p-5 rounded-2xl shrink-0 w-full snap-center">
   <div class="ml-auto text-right flex flex-col gap-0">
     <span class="text-white/80 font-semibold">
       vocalistas
