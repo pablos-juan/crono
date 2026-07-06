@@ -31,6 +31,7 @@
 </script>
 
 <section class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5 py-10">
+  
   <div class="flex flex-col items-center gap-1.5">
     <span
       class="bg-neutral-400 text-neutral-800/90 px-2.5 rounded-md text-lg font-sans font-bold tracking-tight"
@@ -41,7 +42,13 @@
       Eres administrador? Ingresa aquí
     </a>
   </div>
-
+  
+  <article class="flex gap-5 bg-neutral-800 rounded-xl p-4 items-start">
+    <p class="leading-5.5 font-serif text-xl text-white/80">
+      Revisa la programación de la próxima semana antes de su publicación automática.
+    </p>
+    <img class="h-5.5" src="/x.svg" alt="X button icon">
+  </article>
   
   <div class="flex flex-col gap-5">
     <div>
