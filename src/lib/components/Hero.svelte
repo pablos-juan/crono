@@ -3,12 +3,14 @@
   import DayCard from './DayCard.svelte';
   import MainCard from './MainCard.svelte';
   import data from '$lib/mock/data.json'
+  import { fade } from 'svelte/transition';
 
   const { title, services } = data
 
   let current = $state(0)
   let animation = $state(false)
   let timeout
+  let showInfo = $state(true)
 
   function prev () {
     if (current > 0) current -= 1
@@ -30,21 +32,25 @@
   })
 </script>
 
-<section class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5 py-10 items-center">
+<section class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5 py-6.5 items-center">
       <span
       class="bg-neutral-400 text-neutral-800/90 px-2.5 rounded-md text-lg font-sans font-bold tracking-tight"
     >
       {title}
     </span>
   
-  <article class="flex gap-5 bg-neutral-800 rounded-xl p-4 items-start">
+  {#if showInfo}
+    <article out:fade={{ duration: 200 }} class="flex gap-4 bg-neutral-800 rounded-xl p-4 items-start">
     <p class="leading-5.5 font-serif text-xl text-white/80">
       Revisa la programación de la próxima semana antes de su publicación automática. Haz click e ingresa.
     </p>
-    <img class="h-5.5" src="/x.svg" alt="X button icon">
+    <button onclick={() => showInfo = false} class="h-6 w-11">
+      <img class="h-full w-full" src="/x.svg" alt="X button icon">
+    </button>
   </article>
+  {/if}
   
-  <div class="flex flex-col w-full gap-5">
+  <div class="flex flex-col w-full gap-3">
     <div>
       <DayCard animation={animation} service={services[current]} />
     </div>
