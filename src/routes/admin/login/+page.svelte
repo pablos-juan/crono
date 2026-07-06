@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   let code = $state('')
   let error = $state(false)
 
@@ -17,23 +18,23 @@
   }
 </script>
 
-<main class="h-dvh flex flex-col justify-center items-center gap-5 p-10 bg-neutral-950 text-white">
-  <h1 class="text-2xl font-bold">Ingresa el código de acceso</h1>
+<main class="h-dvh flex flex-col justify-center items-center gap-5 p-10 bg-neutral-950/98 text-white">
+  <h1 class="text-4xl font-serif">Ingresa tu código de administrador</h1>
 
   <input
     type="password"
     bind:value={code}
-    placeholder="Código"
-    class="w-full bg-neutral-800 rounded-lg p-3 text-white text-center tracking-widest"
+    placeholder="CODE"
+    class="w-full bg-neutral-800 rounded-lg p-3 text-white text-center tracking-widest font-serif"
   />
 
   {#if error}
-    <p class="text-red-400 text-sm">Código incorrecto</p>
+    <p transition:fade class="text-red-400 text-sm">Código incorrecto</p>
   {/if}
 
   <button
     onclick={verify}
-    class="w-full bg-white text-black font-bold rounded-lg p-3"
+    class="w-full bg-white text-neutral-900 font-semibold rounded-lg p-3 text-lg"
   >
     Ingresar
   </button>
