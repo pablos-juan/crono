@@ -42,7 +42,7 @@
       </span>
 
       <span
-        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg leading-"
+        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg border-2 border-neutral-800"
       >
         Carolina
         <img class="h-5" src="/check.svg" alt="Check mark icon" />

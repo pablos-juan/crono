@@ -1,29 +1,48 @@
 <script>
   import { goto } from "$app/navigation";
   import AdminCard from "./AdminCard.svelte";
-
 </script>
-<section class="flex flex-col gap-8 p-5 h-full justify-center bg-neutral-200/80">
-  <div class="flex flex-col gap-4 ml-5">
-    <h2 class="text-5xl font-serif leading-15">
-      BIENVENIDO, <br>
-      <span class="bg-red-300 px-2 rounded-sm ">Juan Pablo</span>
-    </h2>
 
-    <p class="text-xl leading-5.5 max-w-3/4">
-      Administra el grupo desde aquí. Cada sección incluye una guía para ayudarte.
-    </p>
+<section
+  class="flex flex-col gap-8 p-5.5 h-full justify-between bg-neutral-200/80"
+>
+  <header class="flex justify-between w-full items-center">
+    <span class="text-neutral-800 text-2xl font-serif italic">
+      feb 22, mar 1
+    </span>
+
+    <span
+      class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg border-2 border-neutral-800"
+    >
+      admin
+      <img class="h-5" src="/check.svg" alt="Check mark icon" />
+    </span>
+  </header>
+
+  <div class="flex flex-col gap-9">
+    <article class="flex flex-col gap-5">
+      <h2
+        class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17"
+      >
+        Panel de <br />
+        admin.
+      </h2>
+
+      <p class="text-neutral-800 font-serif leading-6 text-2xl">
+        Aquí están todas las herrameintas que necesitas para gestionar el grupo
+        de alabanza. Cada sección incluye una guía para ayudarte.
+      </p>
+    </article>
+
+    <div class="grid grid-cols-2 gird-rows-2 gap-2">
+      <AdminCard title="Gestión del grupo" />
+      <AdminCard title="Esta semana" />
+      <AdminCard title="Nueva semana" />
+      <button class="bg-neutral-800 text-neutral-200 text-xl flex p-2.5 justify-between rounded-md leading-none">
+        <p class="max-w-2/3 text-left">
+          Volver al inicio
+        </p>
+      </button>
+    </div>
   </div>
-
-  <div class="flex flex-col gap-3">
-    <AdminCard title={['ADMINISTRAR', 'GRUPO']} content='Crea, suspende o elimina un miembro del grupo de alabanza.' />
-    
-    <AdminCard title={['CRONOGRAMA', 'ACTUAL']} content='Revisa y edtia los servicios de la semana en curso.' />
-    
-    <AdminCard title={['NUEVA', 'SEMANA']} content='Genera el cronograma para la próxima semana y publícalo para todos.' />
-  </div>
-
-  <button onclick={() => goto('/')} class="bg-neutral-300 p-2 rounded-xl text-lg font-semibold text-neutral-900 border-2 border-neutral-50 active:border-neutral-500 active:scale-95 transition">
-    Inicio
-  </button>
 </section>
