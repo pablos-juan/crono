@@ -34,15 +34,15 @@
 
 <main class="h-dvh w-screen">
   <section
-    class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5 py-6.5 items-center"
+    class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5.5 py-6.5 items-center"
   >
     <header class="flex justify-between w-full items-center">
-      <span class="text-white/90 text-xl font-serif italic">
+      <span class="text-white/90 text-2xl font-serif italic">
         {title}
       </span>
 
       <span
-        class="bg-green-200 p-3 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center"
+        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg leading-"
       >
         Carolina
         <img class="h-5" src="/check.svg" alt="Check mark icon" />

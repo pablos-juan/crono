@@ -18,14 +18,14 @@
   }
 </script>
 
-<main class="h-dvh flex flex-col justify-center items-center gap-5 p-10 bg-neutral-950/98 text-white">
-  <h1 class="text-4xl font-serif">Ingresa tu código de administrador</h1>
+<main class="h-dvh flex flex-col justify-center items-center gap-5 p-5.5 bg-neutral-100 text-white">
+  <h1 class="text-6xl text-neutral-800 font-sans font-black tracking-tight">Ingresa tu código de admin<span>.</span></h1>
 
   <input
     type="password"
     bind:value={code}
-    placeholder="CODE"
-    class="w-full bg-neutral-800 rounded-lg p-3 text-white text-center tracking-widest font-serif"
+    placeholder="AB2349"
+    class="w-full bg-green-200 border-2 border-neutral-700 rounded-md p-3 text-neutral-800 text-lg tracking-tight"
   />
 
   {#if error}
@@ -34,7 +34,7 @@
 
   <button
     onclick={verify}
-    class="w-full bg-white text-neutral-900 font-semibold rounded-lg p-3 text-lg"
+    class="w-full bg-neutral-800 text-neutral-100 rounded-lg p-3 text-lg"
   >
     Ingresar
   </button>
