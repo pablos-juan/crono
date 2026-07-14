@@ -12,9 +12,9 @@
       vocalistas
     </span>
     <ul class="text-lg -space-y-1.5">
-      <li class="font-bold flex gap-1">
-        <img src="/star.svg" alt="star icon">
+      <li class="font-bold flex gap-1.5">
         {LIDER}
+        <img src="/star.svg" alt="star icon">
       </li>
       {#each APOYO as vocalist}
         <li>{vocalist}</li>
