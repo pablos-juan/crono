@@ -17,7 +17,7 @@
 
   async function logout() {
     await fetch('/api/logout', { method: 'POST'})
-    await goto('/', { invalidateAll: true })
+    window.location.href = '/'
   }
 </script>
 
