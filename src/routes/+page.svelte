@@ -30,6 +30,8 @@
       animation = false;
     }, 300);
   });
+
+  let { isadmin } = $props();
 </script>
 
 <main class="h-dvh w-screen">
@@ -41,12 +43,18 @@
         {title}
       </span>
 
-      <span
-        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg border-2 border-neutral-800"
+      <a
+        href="/admin"
+        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-1.5 items-center text-lg border-2 border-neutral-800"
       >
-        Carolina
-        <img class="h-5" src="/check.svg" alt="Check mark icon" />
-      </span>
+        {#if isadmin}
+          Carolina
+          <img class="h-5" src="/check.svg" alt="Check mark icon" />
+        {:else}
+          admin
+          <img class="h-5" src="/admin-check.svg" alt="Check mark icon for admin users">
+        {/if}
+      </a>
     </header>
 
     <article class="flex gap-3 bg-green-200 p-2 rounded-md">
@@ -55,11 +63,7 @@
         automática.
       </p>
 
-      <img
-        class="h-5"
-        src="/link-arrow.svg"
-        alt="Arrow link button"
-      />
+      <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
     </article>
 
     <div class="flex flex-col w-full gap-3">

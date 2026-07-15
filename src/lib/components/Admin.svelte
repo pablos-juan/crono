@@ -12,10 +12,10 @@
     </span>
 
     <span
-      class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-2 items-center text-lg border-2 border-neutral-800"
+      class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-1.5 items-center text-lg border-2 border-neutral-800"
     >
       admin
-      <img class="h-5" src="/check.svg" alt="Check mark icon" />
+      <img class="h-5" src="/admin-check.svg" alt="Check mark icon for admin users" />
     </span>
   </header>
 
@@ -38,11 +38,12 @@
       <AdminCard title="Gestión del grupo" />
       <AdminCard title="Esta semana" />
       <AdminCard title="Nueva semana" />
-      <button class="bg-neutral-800 text-neutral-200 text-xl flex p-2.5 justify-between rounded-md leading-none">
+
+      <a href="/" class="bg-neutral-800 text-neutral-200 text-xl flex p-2.5 justify-between rounded-md leading-none">
         <p class="max-w-2/3 text-left">
           Volver al inicio
         </p>
-      </button>
+      </a>
     </div>
   </div>
 </section>
