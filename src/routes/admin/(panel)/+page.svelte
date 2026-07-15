@@ -16,8 +16,8 @@
   }
 
   async function logout() {
-    await fetch('/api/logout', { method: 'POST'})
-    window.location.href = '/'
+    await fetch("/api/logout", { method: "POST" });
+    window.location.href = "/";
   }
 </script>
 
@@ -59,7 +59,7 @@
         class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17"
       >
         Panel de <br />
-        admin.
+        admin<span class="inline-block w-4 h-4 rounded-full bg-green-200 border-2 border-neutral-800"></span>
       </h2>
 
       <p class="text-neutral-800 font-serif leading-6 text-2xl">

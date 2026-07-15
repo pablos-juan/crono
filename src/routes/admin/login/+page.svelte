@@ -21,13 +21,18 @@
 <main
   class="h-dvh flex flex-col justify-center items-center gap-5 p-5.5 bg-neutral-100 text-white"
 >
-  <h1 class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17">
-    Ingresa <br>
-    tu código de admin
+  <h1
+    class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17"
+  >
+    Ingresa <br />
+    tu código de admin<span
+      class="inline-block w-4 h-4 rounded-full bg-green-200 border-2 border-neutral-800"
+    ></span>
   </h1>
 
   <p class="text-neutral-800 font-serif leading-6 text-2xl">
-    Cada administrador recibe un código especial, si no tienes uno ponte en contacto con tu iglesia.
+    Cada administrador recibe un código especial, si no tienes uno ponte en
+    contacto con tu iglesia.
   </p>
 
   <input
