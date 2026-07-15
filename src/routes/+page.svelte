@@ -3,10 +3,10 @@
   import { goto } from "$app/navigation";
   import DayCard from "$lib/components/DayCard.svelte";
   import MainCard from "$lib/components/MainCard.svelte";
-  import data from "$lib/mock/data.json";
+  import datos from "$lib/mock/data.json";
   import { fade } from "svelte/transition";
 
-  const { title, services } = data;
+  const { title, services } = datos;
 
   let current = $state(0);
   let animation = $state(false);
@@ -31,7 +31,7 @@
     }, 300);
   });
 
-  let { isadmin } = $props();
+  let { data } = $props();
 </script>
 
 <main class="h-dvh w-screen">
@@ -47,24 +47,30 @@
         href="/admin"
         class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-1.5 items-center text-lg border-2 border-neutral-800"
       >
-        {#if isadmin}
+        {#if !data.isadmin}
           Carolina
           <img class="h-5" src="/check.svg" alt="Check mark icon" />
         {:else}
           admin
-          <img class="h-5" src="/admin-check.svg" alt="Check mark icon for admin users">
+          <img
+            class="h-5"
+            src="/admin-check.svg"
+            alt="Check mark icon for admin users"
+          />
         {/if}
       </a>
     </header>
 
-    <article class="flex gap-3 bg-green-200 p-2 rounded-md">
-      <p class="leading-4.5 font-serif text-lg rounded-md text-neutral-800">
-        Revisa la programación de la próxima semana antes de su publicación
-        automática.
-      </p>
+    {#if data.isadmin}
+      <article class="flex gap-3 bg-green-200 p-2 rounded-md">
+        <p class="leading-4.5 font-serif text-lg rounded-md text-neutral-800">
+          Revisa la programación de la próxima semana antes de su publicación
+          automática.
+        </p>
 
-      <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
-    </article>
+        <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
+      </article>
+    {/if}
 
     <div class="flex flex-col w-full gap-3">
       <div>

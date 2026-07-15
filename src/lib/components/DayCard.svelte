@@ -38,7 +38,7 @@
     </ul>
   </div>
 
-  <div class="flex flex-col gap-1 font-serif bg-neutral-800 px-5 py-3 rounded-xl">
+  <div class="flex flex-col gap-0.5 font-serif bg-neutral-800 px-5 py-3 rounded-xl">
     <h2 class="text-5xl">
       {day} {date}
     </h2>
