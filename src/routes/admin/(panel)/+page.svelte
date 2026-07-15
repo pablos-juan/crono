@@ -22,7 +22,7 @@
 </script>
 
 <section
-  class="flex flex-col gap-8 p-5.5 h-screen justify-between bg-neutral-200/80"
+  class="flex flex-col gap-8 p-5.5 min-h-dvh justify-between bg-neutral-200/80"
 >
   <header class="flex justify-between w-full items-center">
     <span class="text-neutral-800 text-2xl font-serif italic">
