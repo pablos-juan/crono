@@ -39,26 +39,38 @@
     class="flex flex-col justify-between h-dvh bg-neutral-950/98 text-white p-5.5 py-6.5 items-center"
   >
     <header class="flex justify-between w-full items-center">
-      <span class="text-white/90 text-2xl font-serif italic">
-        {title}
-      </span>
-
-      <a
-        href="/admin"
-        class="bg-green-200 p-2.5 py-0.5 rounded-md text-neutral-800 flex gap-1.5 items-center text-lg border-2 border-neutral-800"
-      >
-        {#if !data.isadmin}
-          Carolina
-          <img class="h-5" src="/check.svg" alt="Check mark icon" />
-        {:else}
-          admin
+      <a href="/admin" class="flex gap-1 items-center h-full">
+        {#if data.isadmin}
           <img
-            class="h-5"
+            class="h-10"
             src="/admin-check.svg"
             alt="Check mark icon for admin users"
           />
+        {:else}
+          <img
+            class="h-10"
+            src="/check.svg"
+            alt="Check mark icon for users"
+          />
         {/if}
+
+        <div class="flex flex-col justify-center">
+          <p class="text-xl leading-5">
+            Carolina <br />
+            <span class="text-lg text-green-200 font-semibold leading-none">
+              {data.isadmin ? "admin" : "miembro"}
+            </span>
+          </p>
+        </div>
       </a>
+
+      <article class="text-white/90 text-xl font-semibold leading-5">
+        <span class="text-white/60">
+          {title[0]}
+        </span>
+        <br />
+        {title[1]}
+      </article>
     </header>
 
     {#if data.isadmin}
