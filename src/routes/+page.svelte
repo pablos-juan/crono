@@ -55,7 +55,7 @@
         {/if}
 
         <div class="flex flex-col justify-center">
-          <p class="text-xl leading-5">
+          <p class="text-xl leading-5 tracking-tight">
             Carolina <br />
             <span class="text-lg text-green-200 font-semibold leading-none">
               {data.isadmin ? "admin" : "miembro"}
