@@ -87,7 +87,7 @@
       </article>
     {/if}
 
-    <div class="flex flex-col w-full gap-3">
+    <div class="flex flex-col w-full gap-3 overflow-hidden">
       <div
         role="article"
         ontouchstart={onTouchStart}
