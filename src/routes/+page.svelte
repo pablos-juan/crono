@@ -9,27 +9,31 @@
   const { title, services } = datos;
 
   let current = $state(0);
-  let animation = $state(false);
-  let timeout;
+  let dragX = $state(0)
+  let startX = 0
+  let dragging = $state(false)
 
-  function prev() {
-    if (current > 0) current -= 1;
+  function onTouchStart (event) {
+    startX = event.touches[0].clientX
+    dragging = true
   }
 
-  function next() {
-    if (current < services.length - 1) current += 1;
+  function onTouchMove (event) {
+    if(!dragging) return
+    dragX = event.touches[0].clientX - startX
   }
 
-  $effect(() => {
-    current;
-    clearTimeout(timeout);
+  function onTouchEnd () {
+    dragging = false
 
-    animation = true;
+    if (dragX < -80 && current < services.length - 1) {
+      current += 1
+    } else if (dragX > 80 && current > 0) {
+      current -= 1
+    }
 
-    timeout = setTimeout(() => {
-      animation = false;
-    }, 300);
-  });
+    dragX = 0
+  }
 
   let { data } = $props();
 </script>
@@ -64,7 +68,7 @@
         </div>
       </a>
 
-      <article class="text-white/90 text-xl font-semibold leading-5">
+      <article class="text-white/90 text-xl font-bold leading-5">
         <span class="text-white/60">
           {title[0]}
         </span>
@@ -76,8 +80,7 @@
     {#if data.isadmin}
       <article class="flex gap-3 bg-green-200 p-2 rounded-md">
         <p class="leading-4.5 font-serif text-lg rounded-md text-neutral-800">
-          Revisa la programación de la próxima semana antes de su publicación
-          automática.
+          Revisa la programación de la próxima semana antes de su publicación automática.
         </p>
 
         <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
@@ -85,8 +88,14 @@
     {/if}
 
     <div class="flex flex-col w-full gap-3">
-      <div>
-        <DayCard {animation} service={services[current]} />
+      <div
+        role="article"
+        ontouchstart={onTouchStart}
+        ontouchmove={onTouchMove}
+        ontouchend={onTouchEnd}
+        style="transform: translatex({dragX}px); transition: {dragging ? 'none' : 'transform 0.3s ease'}"
+      >
+        <DayCard service={services[current]} />
       </div>
 
       <aside class="w-full gap-2 px-5 flex justify-between">
@@ -101,22 +110,6 @@
                 : 'bg-neutral-600'}"
             ></div>
           {/each}
-        </div>
-
-        <div class="flex gap-2">
-          <button
-            onclick={prev}
-            class="flex p-2 w-10 justify-center bg-neutral-800 rounded-lg active:bg-neutral-400 active:scale-95 transition"
-          >
-            <img src="/left.svg" alt="arrow left" />
-          </button>
-
-          <button
-            onclick={next}
-            class="flex p-2 w-10 justify-center bg-neutral-800 rounded-lg active:bg-neutral-400 active:scale-95 transition"
-          >
-            <img src="/right.svg" alt="arrow rigth" />
-          </button>
         </div>
       </aside>
     </div>

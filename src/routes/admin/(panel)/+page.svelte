@@ -58,7 +58,7 @@
       </button>
     {/if}
 
-    <article class="text-neutral-800 text-xl font-semibold leading-5">
+    <article class="text-neutral-800 text-xl font-bold leading-5">
       <span class="text-neutral-800/70"> feb 7 </span>
       <br />
       feb 12
