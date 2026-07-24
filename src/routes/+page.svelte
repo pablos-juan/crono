@@ -9,30 +9,30 @@
   const { title, services } = datos;
 
   let current = $state(0);
-  let dragX = $state(0)
-  let startX = 0
-  let dragging = $state(false)
+  let dragX = $state(0);
+  let startX = 0;
+  let dragging = $state(false);
 
-  function onTouchStart (event) {
-    startX = event.touches[0].clientX
-    dragging = true
+  function onTouchStart(event) {
+    startX = event.touches[0].clientX;
+    dragging = true;
   }
 
-  function onTouchMove (event) {
-    if(!dragging) return
-    dragX = event.touches[0].clientX - startX
+  function onTouchMove(event) {
+    if (!dragging) return;
+    dragX = event.touches[0].clientX - startX;
   }
 
-  function onTouchEnd () {
-    dragging = false
+  function onTouchEnd() {
+    dragging = false;
 
     if (dragX < -80 && current < services.length - 1) {
-      current += 1
+      current += 1;
     } else if (dragX > 80 && current > 0) {
-      current -= 1
+      current -= 1;
     }
 
-    dragX = 0
+    dragX = 0;
   }
 
   let { data } = $props();
@@ -51,11 +51,7 @@
             alt="Check mark icon for admin users"
           />
         {:else}
-          <img
-            class="h-10"
-            src="/check.svg"
-            alt="Check mark icon for users"
-          />
+          <img class="h-10" src="/check.svg" alt="Check mark icon for users" />
         {/if}
 
         <div class="flex flex-col justify-center">
@@ -80,7 +76,8 @@
     {#if data.isadmin}
       <article class="flex gap-3 bg-green-200 p-2 rounded-md">
         <p class="leading-4.5 font-serif text-lg rounded-md text-neutral-800">
-          Revisa la programación de la próxima semana antes de su publicación automática.
+          Revisa la programación de la próxima semana antes de su publicación
+          automática.
         </p>
 
         <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
@@ -93,24 +90,22 @@
         ontouchstart={onTouchStart}
         ontouchmove={onTouchMove}
         ontouchend={onTouchEnd}
-        style="transform: translatex({dragX}px); transition: {dragging ? 'none' : 'transform 0.3s ease'}"
+        style="transform: translatex({dragX}px); transition: {dragging
+          ? 'none'
+          : 'transform 0.3s ease'}"
       >
         <DayCard service={services[current]} />
       </div>
 
-      <aside class="w-full gap-2 px-5 flex justify-between">
-        <div
-          class="bg-neutral-800 flex rounded-lg gap-1.5 justify-center items-center p-3 px-3"
-        >
-          {#each services as _, i}
-            <div
-              class="h-3 w-3 rounded-full transition-all duration-200 {current ===
-              i
-                ? 'bg-neutral-400 w-6'
-                : 'bg-neutral-600'}"
-            ></div>
-          {/each}
-        </div>
+      <aside class="w-full gap-2 flex justify-between">
+        {#each services as _, i}
+          <div
+            class="w-full h-1 transition-colors duration-200 {current ===
+            i
+              ? 'bg-neutral-400'
+              : 'bg-neutral-600'}"
+          ></div>
+        {/each}
       </aside>
     </div>
   </section>
