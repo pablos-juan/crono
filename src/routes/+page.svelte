@@ -1,38 +1,15 @@
 <script>
   import "../app.css";
-  import { goto } from "$app/navigation";
   import DayCard from "$lib/components/DayCard.svelte";
   import MainCard from "$lib/components/MainCard.svelte";
   import datos from "$lib/mock/data.json";
-  import { fade } from "svelte/transition";
 
   const { title, services } = datos;
 
   let current = $state(0);
-  let dragX = $state(0);
-  let startX = 0;
-  let dragging = $state(false);
 
-  function onTouchStart(event) {
-    startX = event.touches[0].clientX;
-    dragging = true;
-  }
-
-  function onTouchMove(event) {
-    if (!dragging) return;
-    dragX = event.touches[0].clientX - startX;
-  }
-
-  function onTouchEnd() {
-    dragging = false;
-
-    if (dragX < -80 && current < services.length - 1) {
-      current += 1;
-    } else if (dragX > 80 && current > 0) {
-      current -= 1;
-    }
-
-    dragX = 0;
+  function select (index) {
+    current = index
   }
 
   let { data } = $props();
@@ -73,40 +50,22 @@
       </article>
     </header>
 
-    {#if data.isadmin}
-      <article class="flex gap-3 bg-green-200 p-2 rounded-md">
-        <p class="leading-4.5 font-serif text-lg rounded-md text-neutral-800">
-          Revisa la programación de la próxima semana antes de su publicación
-          automática.
-        </p>
-
-        <img class="h-5" src="/link-arrow.svg" alt="Arrow link button" />
-      </article>
-    {/if}
-
-    <div class="flex flex-col w-full gap-3 overflow-hidden">
-      <div
-        role="article"
-        ontouchstart={onTouchStart}
-        ontouchmove={onTouchMove}
-        ontouchend={onTouchEnd}
-        style="transform: translatex({dragX}px); transition: {dragging
-          ? 'none'
-          : 'transform 0.3s ease'}"
-      >
-        <DayCard service={services[current]} />
-      </div>
-
-      <aside class="w-full gap-2 flex justify-between">
-        {#each services as _, i}
-          <div
-            class="w-full h-1 transition-colors duration-200 {current ===
-            i
-              ? 'bg-neutral-400'
-              : 'bg-neutral-600'}"
-          ></div>
-        {/each}
-      </aside>
+    <div class="flex flex-col w-full gap-2">
+      {#each services as service, i}
+        <button
+          onclick={() => select(i)}
+          class="w-full rounded-sm overflow-hidden transition-all duration-300 {current === i ? 'flex-1' : 'h-12'}"
+        >
+          {#if current === i}
+            <DayCard service={service} />
+          {:else}
+            <div class="h-full flex items-center justify-between p-3 bg-neutral-800/70 opacity-80">
+              <span class="text-white/70">{service.day}</span>
+              <span class="text-white/50 font-bold text-xl">{service.date}</span>
+            </div>
+          {/if}
+        </button>
+      {/each}
     </div>
   </section>
 </main>

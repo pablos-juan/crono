@@ -2,8 +2,8 @@
   "title": ["feb 7", "feb 12"],
   "services": [
     {
-      "day": "MARTES",
-      "name": "DAMAS DORCAS",
+      "day": "Martes",
+      "name": "Damas dorcas",
       "date": "7",
       "team": {
         "PIANO": "Daniel Martínez",
@@ -19,7 +19,7 @@
     },
     {
       "day": "JUEVES",
-      "name": "ORACIÓN Y DOCTRINA",
+      "name": "Oración y doctrina",
       "date": "9",
       "team": {
         "PIANO": "Camila Herrera",
@@ -33,8 +33,8 @@
       }
     },
     {
-      "day": "SÁBADO",
-      "name": "JÓVENES",
+      "day": "Sábado",
+      "name": "Gavillas para Cristo",
       "date": "11",
       "team": {
         "PIANO": "Daniel Martínez",
@@ -50,8 +50,8 @@
       }
     },
     {
-      "day": "DOMINGO",
-      "name": "ESCUELA DOMINICAL",
+      "day": "Domingo",
+      "name": "Escuela dominical",
       "date": "12",
       "team": {
         "PIANO": "Camila Herrera",
@@ -66,8 +66,8 @@
       }
     },
     {
-      "day": "DOMINGO",
-      "name": "CULTO EVANGELÍSTICO",
+      "day": "Domingo (tarde)",
+      "name": "Refam",
       "date": "12",
       "team": {
         "PIANO": "Daniel Martínez",
