@@ -13,7 +13,7 @@
     <div class="ml-auto text-right flex flex-col gap-0">
       <span class="text-white/80 font-semibold"> vocalistas </span>
       <ul class="text-xl -space-y-1">
-        <li class="font-bold flex gap-1">
+        <li class="font-bold flex gap-1 flex-row-reverse">
           {LIDER}
           <img src="/star.svg" alt="star icon" />
         </li>

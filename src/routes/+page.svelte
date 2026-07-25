@@ -7,9 +7,17 @@
   const { title, services } = datos;
 
   let current = $state(0);
+  let contentVisible = $state(true)
 
   function select (index) {
-    current = index
+    if (!document.startViewTransition) {
+      current = index
+      return
+    }
+
+    document.startViewTransition(() => {
+      current = index
+    })
   }
 
   let { data } = $props();
@@ -54,12 +62,13 @@
       {#each services as service, i}
         <button
           onclick={() => select(i)}
-          class="w-full rounded-sm overflow-hidden transition-all duration-300 {current === i ? 'flex-1' : 'h-12'}"
+          style='view-transition-name: services-{i};'
+          class="w-full rounded-sm overflow-hidden transition-all duration-300 {current === i ? 'flex-1' : 'h-9'}"
         >
           {#if current === i}
             <DayCard service={service} />
           {:else}
-            <div class="h-full flex items-center justify-between p-3 bg-neutral-800/70 opacity-80">
+            <div class="h-full flex items-center justify-between p-2.5 bg-neutral-800/70 opacity-80">
               <span class="text-white/70">{service.day}</span>
               <span class="text-white/50 font-bold text-xl">{service.date}</span>
             </div>
