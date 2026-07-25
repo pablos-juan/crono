@@ -41,7 +41,7 @@
   </div>
 
   <div
-    class="flex gap-1 justify-between items-center font-sans bg-neutral-900/70 p-4 border-t-2 border-dashed border-t-neutral-600 text-left"
+    class="flex gap-1 justify-between items-center font-sans bg-neutral-900/70 rounded-t-sm p-4 border-t-2 border-dashed border-t-neutral-600 text-left"
   >
     <div class="flex flex-col gap-1">
       <h2 class="text-xl leading-5">
@@ -52,6 +52,6 @@
       </h3>
     </div>
 
-    <span class="text-3xl text-white/50 font-bold">{date}</span>
+    <span class="text-4xl text-white/50 font-bold">{date}</span>
   </div>
 </article>
