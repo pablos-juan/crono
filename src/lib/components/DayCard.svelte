@@ -1,9 +1,9 @@
 <script>
-  let { service } = $props();
-  const { day, name, date, team } = $derived(service);
-  const { LIDER, APOYO } = $derived(team);
+  let { service } = $props()
+  const { day, name, date, team } = $derived(service)
+  const { LIDER, APOYO } = $derived(team)
 
-  const INSTRUMENTS = ["PIANO", "BATERIA", "GUITARRA", "BAJO"];
+  const INSTRUMENTS = ['PIANO', 'BATERIA', 'GUITARRA', 'BAJO']
 </script>
 
 <article

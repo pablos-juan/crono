@@ -56,7 +56,7 @@
       </article>
     </header>
 
-    <div class="flex flex-col w-full gap-2">
+    <div style="view-transition-name: content;" class="flex flex-col w-full gap-2">
       {#each services as service, i (i)}
         <button
           onclick={() => select(i)}
