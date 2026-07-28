@@ -43,6 +43,8 @@
       bind:this={inputs[i]}
       maxlength="1"
       value={digits[i]}
+      inputmode="numeric"
+      pattern="[0-9]"
       oninput={(e) => {
         digits[i] = e.target.value
         if (e.target.value && i < 3) inputs[i + 1].focus()
