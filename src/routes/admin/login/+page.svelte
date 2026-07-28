@@ -1,5 +1,4 @@
 <script>
-  import { fade } from 'svelte/transition'
   let code = $state('')
   let error = $state(false)
 
@@ -19,10 +18,10 @@
 </script>
 
 <main
-  class="h-dvh flex flex-col justify-center items-center gap-5 p-5.5 bg-neutral-100 text-white"
+  class="h-dvh flex flex-col justify-center items-center gap-5 p-6 bg-neutral-950/98"
 >
   <h1
-    class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17"
+    class="text-7xl text-neutral-100 font-sans font-black tracking-tight leading-17"
   >
     Ingresa <br />
     tu código de admin<span
@@ -30,25 +29,51 @@
     ></span>
   </h1>
 
-  <p class="text-neutral-800 font-serif leading-6 text-2xl">
-    Cada administrador recibe un código especial, si no tienes uno ponte en
-    contacto con tu iglesia.
+  <p class="leading-5 text-lg text-neutral-100/80">
+    Cada administrador recibe un código especial, si no tienes uno ponte en contacto con tu iglesia.
   </p>
 
-  <input
+  <div class="flex gap-2">
+    <input
     type="password"
     bind:value={code}
-    placeholder="AB2349"
-    class="w-full bg-green-200 border-2 border-neutral-700 rounded-md p-3 text-neutral-800 text-lg tracking-tight"
-  />
+    placeholder="A"
+    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
+    />
+
+    <input
+    type="password"
+    bind:value={code}
+    placeholder="B"
+    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
+    />
+
+    <input
+    type="password"
+    bind:value={code}
+    placeholder=8
+    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
+    />
+
+    <input
+    type="password"
+    bind:value={code}
+    placeholder=9
+    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
+    />
+  </div>
 
   {#if error}
-    <p transition:fade class="text-red-400 text-sm">Código incorrecto</p>
+    <article class="bg-red-200 w-full p-2 leading-4 text-red-900 font-normal rounded-sm border border-red-900 flex gap-2">
+      Este código no pertenece a ningún administrador.
+
+      <img class="h-5" src="/adv.svg" alt="Error icon">
+    </article>
   {/if}
 
   <button
     onclick={verify}
-    class="w-full bg-neutral-800 text-neutral-100 rounded-lg p-3 text-lg"
+    class="w-full transition-colors duration-200 active:bg-green-300 active:text-neutral-800 bg-neutral-800 text-neutral-200 border border-neutral-200 rounded-md p-3 text-xl font-semibold"
   >
     Ingresar
   </button>
