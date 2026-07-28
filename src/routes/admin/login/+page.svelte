@@ -1,8 +1,10 @@
 <script>
-  let code = $state('')
+  let digits = $state(['', '', '', ''])
+  let inputs = $state([])
   let error = $state(false)
 
   async function verify () {
+    const code = digits.join('')
     const res = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({ code }),
@@ -13,11 +15,13 @@
       window.location.href = '/admin'
     } else {
       error = true
+      digits = ['', '', '', '']
+      inputs[0].focus()
     }
   }
 </script>
 
-<main
+<section
   class="h-dvh flex flex-col justify-center items-center gap-5 p-6 bg-neutral-950/98"
 >
   <h1
@@ -34,37 +38,28 @@
   </p>
 
   <div class="flex gap-2">
-    <input
-    type="password"
-    bind:value={code}
-    placeholder="A"
-    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
-    />
-
-    <input
-    type="password"
-    bind:value={code}
-    placeholder="B"
-    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
-    />
-
-    <input
-    type="password"
-    bind:value={code}
-    placeholder=8
-    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
-    />
-
-    <input
-    type="password"
-    bind:value={code}
-    placeholder=9
-    class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-600 text-4xl text-center font-bold"
-    />
+    {#each digits as _, i (i)}
+      <input
+      bind:this={inputs[i]}
+      maxlength="1"
+      value={digits[i]}
+      oninput={(e) => {
+        digits[i] = e.target.value
+        if (e.target.value && i < 3) inputs[i + 1].focus()
+        if (i === 3 && digits.every(d => d !== '')) verify()
+      }}
+      onkeydown={(e) => {
+        if (e.key === 'Backspace' && !digits[i] && i > 0) {
+          inputs[i - 1].focus()
+        }
+      }}
+      class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-100 text-4xl text-center font-bold"
+      />
+    {/each}
   </div>
 
   {#if error}
-    <article class="bg-red-200 w-full p-2 leading-4 text-red-900 font-normal rounded-sm border border-red-900 flex gap-2">
+    <article class="bg-red-200 w-full p-3 leading-4 text-red-900 font-normal rounded-sm border border-red-900 flex gap-2">
       Este código no pertenece a ningún administrador.
 
       <img class="h-5" src="/adv.svg" alt="Error icon">
@@ -77,4 +72,4 @@
   >
     Ingresar
   </button>
-</main>
+</section>
