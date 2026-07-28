@@ -1,23 +1,22 @@
 <script>
-  import { goto } from "$app/navigation";
-  import AdminCard from "$lib/components/AdminCard.svelte";
+  import AdminCard from '$lib/components/AdminCard.svelte'
 
-  let endsession = $state(false);
+  let endsession = $state(false)
 
-  function toggleAction() {
+  function toggleAction () {
     if (!document.startViewTransition) {
-      endsession = !endsession;
-      return;
+      endsession = !endsession
+      return
     }
 
     document.startViewTransition(() => {
-      endsession = !endsession;
-    });
+      endsession = !endsession
+    })
   }
 
-  async function logout() {
-    await fetch("/api/logout", { method: "POST" });
-    window.location.href = "/";
+  async function logout () {
+    await fetch('/api/logout', { method: 'POST' })
+    window.location.href = '/'
   }
 </script>
 

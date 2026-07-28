@@ -1,13 +1,11 @@
 <script>
-  import "../app.css";
-  import DayCard from "$lib/components/DayCard.svelte";
-  import MainCard from "$lib/components/MainCard.svelte";
-  import datos from "$lib/mock/data.json";
+  import '../app.css'
+  import DayCard from '$lib/components/DayCard.svelte'
+  import datos from '$lib/mock/data.json'
 
-  const { title, services } = datos;
+  const { title, services } = datos
 
-  let current = $state(0);
-  let contentVisible = $state(true)
+  let current = $state(0)
 
   function select (index) {
     if (!document.startViewTransition) {
@@ -20,7 +18,7 @@
     })
   }
 
-  let { data } = $props();
+  let { data } = $props()
 </script>
 
 <main class="h-dvh w-screen">
@@ -43,7 +41,7 @@
           <p class="text-xl leading-5 tracking-tight">
             Carolina <br />
             <span class="text-lg text-green-200 font-semibold leading-none">
-              {data.isadmin ? "admin" : "miembro"}
+              {data.isadmin ? 'admin' : 'miembro'}
             </span>
           </p>
         </div>
@@ -59,7 +57,7 @@
     </header>
 
     <div class="flex flex-col w-full gap-2">
-      {#each services as service, i}
+      {#each services as service, i (i)}
         <button
           onclick={() => select(i)}
           style='view-transition-name: services-{i};'

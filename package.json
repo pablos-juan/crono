@@ -10,9 +10,13 @@
 		"prepare": "svelte-kit sync || echo ''"
 	},
 	"devDependencies": {
+		"@eslint/js": "^10.0.1",
 		"@sveltejs/adapter-auto": "^7.0.1",
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"eslint": "^10.8.0",
+		"eslint-plugin-svelte": "^3.22.0",
+		"globals": "^17.8.0",
 		"svelte": "^5.56.1",
 		"vite": "^8.0.16"
 	},

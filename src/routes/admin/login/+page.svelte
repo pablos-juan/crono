@@ -1,19 +1,19 @@
 <script>
-  import { fade } from "svelte/transition";
-  let code = $state("");
-  let error = $state(false);
+  import { fade } from 'svelte/transition'
+  let code = $state('')
+  let error = $state(false)
 
-  async function verify() {
-    const res = await fetch("/api/login", {
-      method: "POST",
+  async function verify () {
+    const res = await fetch('/api/login', {
+      method: 'POST',
       body: JSON.stringify({ code }),
-      headers: { "Content-Type": "application/json" },
-    });
+      headers: { 'Content-Type': 'application/json' },
+    })
 
     if (res.ok) {
-      window.location.href = "/admin";
+      window.location.href = '/admin'
     } else {
-      error = true;
+      error = true
     }
   }
 </script>
