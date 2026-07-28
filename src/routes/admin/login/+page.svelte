@@ -22,7 +22,7 @@
 </script>
 
 <section
-  class="h-dvh flex flex-col justify-center items-center gap-5 p-6 bg-neutral-950/98"
+  class="h-dvh flex flex-col justify-end items-center gap-5 p-6 bg-neutral-950/98"
 >
   <h1
     class="text-7xl text-neutral-100 font-sans font-black tracking-tight leading-17"
@@ -68,10 +68,10 @@
     </article>
   {/if}
 
-  <button
-    onclick={verify}
-    class="w-full transition-colors duration-200 active:bg-green-300 active:text-neutral-800 bg-neutral-800 text-neutral-200 border border-neutral-200 rounded-md p-3 text-xl font-semibold"
+  <a
+    href="/"
+    class="w-full transition-colors duration-200 active:bg-green-300 active:text-neutral-800 bg-neutral-800 text-neutral-200 border border-neutral-200 rounded-md p-3 text-xl font-semibold text-center mt-3"
   >
-    Ingresar
-  </button>
+    Volver al inicio
+  </a>
 </section>
