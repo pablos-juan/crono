@@ -17,7 +17,7 @@
           {LIDER}
           <img src="/star.svg" alt="star icon" />
         </li>
-        {#each APOYO as vocalist}
+        {#each APOYO as vocalist (vocalist)}
           <li>{vocalist}</li>
         {/each}
       </ul>
@@ -26,7 +26,7 @@
     <div class="flex flex-col text-left">
       <span class="text-white/80 font-semibold"> instrumentos </span>
       <ul class="text-xl -space-y-1">
-        {#each INSTRUMENTS as instrumet}
+        {#each INSTRUMENTS as instrumet (instrumet)}
           {#if team[instrumet]}
             <li>
               <span class="text-white/80 italic font-serif"

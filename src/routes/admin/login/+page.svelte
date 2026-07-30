@@ -46,6 +46,7 @@
       inputmode="numeric"
       pattern="[0-9]"
       oninput={(e) => {
+        error = false
         digits[i] = e.target.value
         if (e.target.value && i < 3) inputs[i + 1].focus()
         if (i === 3 && digits.every(d => d !== '')) verify()
@@ -55,18 +56,19 @@
           inputs[i - 1].focus()
         }
       }}
-      class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-100 text-4xl text-center font-bold"
+      class="w-full bg-neutral-800 rounded-sm p-3 text-neutral-100 text-4xl text-center font-bold border-2 transition-colors duration-200 {error ? 'border-red-200' : 'border-transparent'}"
       />
     {/each}
   </div>
 
-  {#if error}
-    <article class="bg-red-200 w-full p-3 leading-4 text-red-900 font-normal rounded-sm border border-red-900 flex gap-2">
-      Este código no pertenece a ningún administrador.
-
-      <img class="h-5" src="/adv.svg" alt="Error icon">
-    </article>
-  {/if}
+  <div class="grid w-full transition-all duration-300 ease-in-out {error ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}">
+    <div class="overflow-hidden">
+      <article class="bg-red-200 w-full p-3 leading-4 text-red-900 font-normal rounded-sm border border-red-900 flex gap-2">
+        Este código no pertenece a ningún administrador.
+        <img class="h-5" src="/adv.svg" alt="Error icon">
+      </article>
+    </div>
+  </div>
 
   <a
     href="/"
