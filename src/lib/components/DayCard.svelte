@@ -9,7 +9,7 @@
 <article
   class="flex flex-col text-white bg-neutral-600/40 h-auto w-full border-2 border-neutral-600 rounded-sm"
 >
-  <div class="flex flex-col gap-5 p-7">
+  <div class="flex flex-col gap-5 p-5">
     <div class="ml-auto text-right flex flex-col gap-0">
       <span class="text-white/80 font-semibold"> vocalistas </span>
       <ul class="text-xl -space-y-1">
@@ -41,7 +41,7 @@
   </div>
 
   <div
-    class="flex gap-1 justify-between items-center font-sans bg-neutral-900/70 rounded-t-sm p-4 border-t-2 border-dashed border-t-neutral-600 text-left"
+    class="flex gap-1 justify-between items-center font-sans bg-neutral-900/70 rounded-t-sm p-5 border-t-2 border-dashed border-t-neutral-600 text-left"
   >
     <div class="flex flex-col gap-1">
       <h2 class="text-xl leading-5">

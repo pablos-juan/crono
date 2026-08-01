@@ -21,14 +21,14 @@
 </script>
 
 <section
-  class="flex flex-col gap-8 p-5.5 min-h-dvh justify-between bg-neutral-200/80"
+  class="flex flex-col gap-8 p-5.5 min-h-dvh justify-between bg-neutral-950/98"
 >
   <header class="flex justify-between w-full items-center">
     {#if !endsession}
       <button
         onclick={toggleAction}
         style="view-transition-name: admin-badge;"
-        class="p-2 rounded-md text-neutral-800 flex gap-1.5 items-center tracking-tight active:bg-white transition-colors duration-200"
+        class="p-2 rounded-md text-neutral-200 flex gap-1.5 items-center tracking-tight active:bg-white transition-colors duration-200"
       >
         <img
           class="h-10"
@@ -40,7 +40,7 @@
           <p class="text-xl leading-5 text-left">
             Carolina <br />
             <span
-              class="text-lg text-neutral-800/70 font-semibold leading-none"
+              class="text-lg text-neutral-200/70 font-semibold leading-none"
             >
               admin
             </span>
@@ -57,33 +57,31 @@
       </button>
     {/if}
 
-    <article class="text-neutral-800 text-xl font-bold leading-5">
-      <span class="text-neutral-800/70"> feb 7 </span>
+    <article class="text-neutral-200 text-xl font-bold leading-5">
+      <span class="text-neutral-200/70"> feb 7 </span>
       <br />
       feb 12
     </article>
   </header>
 
   <div class="flex flex-col gap-9">
-    <article class="flex flex-col gap-5">
+    <article class="flex flex-col gap-4">
       <h2
-        class="text-7xl text-neutral-800 font-sans font-black tracking-tight leading-17"
+        class="text-7xl text-neutral-200 font-sans font-black tracking-tight leading-17"
       >
         Panel de <br />
         admin<span
-          class="inline-block w-4 h-4 rounded-full bg-green-200 border-2 border-neutral-800"
+          class="inline-block w-3 h-3 rounded-full bg-green-300"
         ></span>
       </h2>
 
-      <p class="text-neutral-800 font-serif leading-6 text-2xl">
-        Aquí están todas las herrameintas que necesitas para gestionar el grupo
-        de alabanza. Cada sección incluye una guía para ayudarte.
+      <p class="text-neutral-200/70 leading-6 text-lg">
+        Todo lo que necesitas para gestionar el grupo de alabanza. Cada sección incluye una guía.
       </p>
     </article>
 
     <div class="grid grid-cols-2 gird-rows-2 gap-2">
       <AdminCard title="Gestión del grupo" />
-      <AdminCard title="Esta semana" />
       <AdminCard title="Nueva semana" />
 
       <a
