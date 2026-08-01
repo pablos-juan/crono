@@ -1,5 +1,5 @@
 <script>
-  import AdminCard from '$lib/components/AdminCard.svelte'
+  import Card from '$lib/components/Card.svelte'
 
   let endsession = $state(false)
 
@@ -21,7 +21,7 @@
 </script>
 
 <section
-  class="flex flex-col gap-8 p-5.5 min-h-dvh justify-between bg-neutral-950/98"
+  class="flex flex-col gap-8 p-6 min-h-dvh justify-between bg-neutral-950/98"
 >
   <header class="flex justify-between w-full items-center">
     {#if !endsession}
@@ -75,21 +75,36 @@
         ></span>
       </h2>
 
-      <p class="text-neutral-200/70 leading-6 text-lg">
+      <p class="text-neutral-200/70 leading-tight text-lg">
         Todo lo que necesitas para gestionar el grupo de alabanza. Cada sección incluye una guía.
       </p>
     </article>
 
-    <div class="grid grid-cols-2 gird-rows-2 gap-2">
-      <AdminCard title="Gestión del grupo" />
-      <AdminCard title="Nueva semana" />
+    <div class="flex flex-col gap-3">
+      <Card>
+        <div class="flex justify-between items-center w-full">
+          <h3 class="text-2xl text-neutral-800 font-semibold tracking-tight">
+            Esta semana
+          </h3>
+          <p class="bg-green-800/40 text-neutral-800 px-2 rounded-sm text-xs font-semibold flex items-center h-5">
+            3 acciones por realizar
+          </p>
+        </div>
 
-      <a
-        href="/"
-        class="bg-neutral-800 text-neutral-200 text-xl flex p-2.5 justify-between rounded-md leading-none"
-      >
-        <p class="max-w-2/3 text-left">Volver al inicio</p>
-      </a>
+        <p class="text-neutral-700 leading-tight text-sm">
+          Administra los servicios de la semana: agrega, edita o elimina participantes, crea nuevos servicios y actualiza la información.
+        </p>
+      </Card>
+
+      <article class="bg-neutral-700/70 p-3 rounded-sm border border-neutral-400/80 flex flex-col gap-1.5">
+        <h3 class="text-2xl text-neutral-200 tracking-tight">
+          Nuevo cronograma
+        </h3>
+
+        <p class="text-neutral-400 text-sm leading-tight">
+          Genera un nuevo cronograma, selecciona los parémetros que puedan servirte. El cronograma actual será reemplazado por el nuevo.
+        </p>
+      </article>
     </div>
   </div>
 </section>
