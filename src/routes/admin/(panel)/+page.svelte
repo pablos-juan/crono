@@ -75,8 +75,8 @@
     </article>
   </header>
 
-  <div class="flex flex-col gap-9">
-    <article class="flex flex-col gap-4">
+  <div class="flex flex-col gap-6">
+    <article class="flex flex-col gap-3">
       <h2
         class="text-7xl text-neutral-200 font-sans font-black tracking-tight leading-17"
       >
@@ -131,6 +131,10 @@
           {/each}
         </div>
       </article>
+
+      <a href="/" class="text-neutral-200 p-2 w-full text-center underline">
+        Volver al inicio
+      </a>
     </div>
   </div>
 </section>
