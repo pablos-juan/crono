@@ -2,6 +2,17 @@
   import Card from '$lib/components/Card.svelte'
 
   let endsession = $state(false)
+  const badges = [
+    { label: 'Vigilia', active: false },
+    { label: 'Sin servicio en la tarde', active: false },
+    { label: 'Lista de ausentes', active: false },
+  ]
+
+  let activeBadges = $state(badges)
+
+  function toggleBadge (index) {
+    activeBadges[index].active = !activeBadges[index].active
+  }
 
   function toggleAction () {
     if (!document.startViewTransition) {
@@ -82,13 +93,13 @@
 
     <div class="flex flex-col gap-3">
       <Card>
-        <div class="flex justify-between items-center w-full">
+        <div class="flex gap-2 items-center w-full">
+          <span class="bg-green-800/40 text-neutral-800 px-2 rounded-sm text-sm font-semibold flex items-center h-6">
+            Sin acciones
+          </span>
           <h3 class="text-2xl text-neutral-800 font-semibold tracking-tight">
             Esta semana
           </h3>
-          <p class="bg-green-800/40 text-neutral-800 px-2 rounded-sm text-xs font-semibold flex items-center h-5">
-            3 acciones por realizar
-          </p>
         </div>
 
         <p class="text-neutral-700 leading-tight text-sm">
@@ -96,14 +107,29 @@
         </p>
       </Card>
 
-      <article class="bg-neutral-700/70 p-3 rounded-sm border border-neutral-400/80 flex flex-col gap-1.5">
-        <h3 class="text-2xl text-neutral-200 tracking-tight">
-          Nuevo cronograma
-        </h3>
+      <article class="bg-neutral-700/70 p-3 rounded-sm border border-neutral-400/80 flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <h3 class="text-2xl text-neutral-200 tracking-tight font-semibold">
+            Nuevo cronograma
+          </h3>
 
-        <p class="text-neutral-400 text-sm leading-tight">
-          Genera un nuevo cronograma, selecciona los parémetros que puedan servirte. El cronograma actual será reemplazado por el nuevo.
-        </p>
+          <p class="text-neutral-400 text-sm leading-tight">
+            Genera un nuevo cronograma, selecciona los parémetros que puedan servirte. El cronograma actual será reemplazado por el nuevo.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {#each  activeBadges as badge, i (i)}
+            <button
+              onclick={() => toggleBadge(i)}
+              class="px-2 py-1 rounded-sm transition-colors duration-200 {badge.active
+                ? 'bg-green-300 text-neutral-900'
+                : 'bg-neutral-800/80 text-neutral-400'}"
+            >
+              {badge.label}
+            </button>
+          {/each}
+        </div>
       </article>
     </div>
   </div>
